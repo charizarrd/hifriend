@@ -6,16 +6,6 @@ html
 		link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous")
 
 	script(id="tracks-template", type="text/x-handlebars-template")
-		div.row
-			div.col-sm-4 {{name}}
-			{{#if artists.name}}
-			div.col-sm-4 {{artists.name}}
-			{{/if}}
-			{{#if album.name}}
-			div.col-sm-4 {{album.name}}
-			{{/if}}
-
-	script(id="tracks-template2", type="text/x-handlebars-template")
 		tr
 			td {{name}}
 			{{#if artists.name}}
