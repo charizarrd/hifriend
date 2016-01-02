@@ -9,8 +9,8 @@ app.use(express.static(__dirname + '/static'));
 app.set('views', './views')
 app.set('view engine', 'jade')
 
-var clientId = 'fa5cebd752af40e489eff2177321af98';
-var clientSecret = '724c8bf8069a4d6db8da4e68006366d5';
+var clientId = '';
+var clientSecret = '';
 var scopes = ['playlist-read-collaborative'],
 	redirectUri = 'http://localhost:8000/callback';
 
