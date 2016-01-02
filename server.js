@@ -35,7 +35,7 @@ var stateKey = 'spotify_auth_state';
 var tokenExpirationEpoch;
 
 app.get('/', function(req, res) {
-	console.log('hi');
+	// console.log('hi');
 	// res.sendfile('index.html');
 	if (spotifyApi.getAccessToken() == undefined) {
 		var state = randomString(16);
@@ -49,28 +49,8 @@ app.get('/', function(req, res) {
 	}
 });
 
-// var numberOfTimesUpdated = 0;
-// setInterval(function() {
-//   console.log('Time left: ' + Math.floor((tokenExpirationEpoch - new Date().getTime() / 1000)) + ' seconds left!');
-
-//   // OK, we need to refresh the token. Stop printing and refresh.
-//   if (++numberOfTimesUpdated > 5) {
-//     clearInterval(this);
-
-//     // Refresh token and print the new time to expiration.
-//     spotifyApi.refreshAccessToken()
-//       .then(function(data) {
-//         tokenExpirationEpoch = (new Date().getTime() / 1000) + data.body['expires_in'];
-//         console.log('Refreshed token. It now expires in ' + Math.floor(tokenExpirationEpoch - new Date().getTime() / 1000) + ' seconds!');
-//       }, function(err) {
-//         console.log('Could not refresh the token!', err.message);
-//       });
-//   }
-// }, 1000);
-
-
 app.get('/callback', function(req, res) {
-	console.log('hii');
+	// console.log('hii');
 	spotifyApi.authorizationCodeGrant(req.query.code)
 	.then(function(data) {
 	console.log('The token expires in ' + data.body['expires_in']);
@@ -114,27 +94,6 @@ app.get('/tracks', function(req, res) {
 	});
 });
 
-
-// spotifyApi.getUserPlaylists('charizarrd93')
-//   .then(function(data) {
-//     console.log('Retrieved playlists', data.body);
-//   },function(err) {
-//     console.log('Something went wrong!', err);
-//   });
-
-// spotifyApi.getArtist('2hazSY4Ef3aB9ATXW7F5w3')
-//   .then(function(data) {
-//     console.log('Artist information', data.body);
-//   }, function(err) {
-//     console.error(err);
-//   });
-
-// spotifyApi.getPlaylist('charizarrd93', '3LzwHjzPipF6WexoQd4MTh')
-//   .then(function(data) {
-//     console.log('Some information about this playlist', data.body);
-//   }, function(err) {
-//     console.log('Something went wrong!', err);
-//   });
 
 
 app.listen(8000, function () {
